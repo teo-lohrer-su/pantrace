@@ -20,7 +20,7 @@ impl<W: Write> TracerouteWriter for AtlasWriter<W> {
         for traceroute in traceroutes {
             let bytes = serde_json::to_vec(&traceroute)?;
             self.output.write_all(&bytes)?;
-            self.output.write_all(b"\n")?;
+            self.output.write_all(b"\n ")?;
         }
         Ok(())
     }
